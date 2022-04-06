@@ -1,3 +1,12 @@
+###########################
+# ProtoNet - miniImageNet
+###########################
+
+(drl) [yy2564@login2 few-shot-learning-cv]$ 
+# python -m protoNet.experiments.proto_nets --dataset miniImageNet --distance cosine --k-train 5 --k-test 5 --n-test 1 --n-train 1 --q-train 15
+python -m protoNet.experiments.proto_nets --dataset miniImageNet --distance cosine --k-test 5 --n-test 1 --k-train 20 --n-train 1 --q-train 15
+
+
 # Proto Net experiments
 python -m experiments.proto_nets --dataset omniglot --k-test 5 --n-test 1
 python -m experiments.proto_nets --dataset omniglot --k-test 5 --n-test 5

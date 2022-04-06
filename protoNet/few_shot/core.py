@@ -53,6 +53,8 @@ class NShotTaskSampler(Sampler):
         return self.episodes_per_epoch
 
     def __iter__(self):
+        # print('-----------------------------ERROR ALERT-----------------------------')
+        # print('self.episodes_per_epoch:', self.episodes_per_epoch)
         for _ in range(self.episodes_per_epoch):
             batch = []
 
@@ -76,7 +78,17 @@ class NShotTaskSampler(Sampler):
                     for i, s in support.iterrows():
                         batch.append(s['id'])
 
+                
+                # print('episode_classes:', episode_classes)
+                # print('support_k:', support_k)
                 for k in episode_classes:
+                # for idx, k in enumerate(episode_classes):
+                    # print('idx:', idx)
+                    # print('k:', k)
+                    # print('df\n', df[(df['class_id'] == k) & (~df['id'].isin(support_k[k]['id']))])
+                    # print('self.q:', self.q)
+                    # print()
+                    # print()
                     query = df[(df['class_id'] == k) & (~df['id'].isin(support_k[k]['id']))].sample(self.q)
                     for i, q in query.iterrows():
                         batch.append(q['id'])

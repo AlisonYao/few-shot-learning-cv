@@ -20,6 +20,9 @@ from few_shot.callbacks import *
 from few_shot.utils import setup_dirs
 from config import PATH
 
+print('**************************')
+print('PATH:', PATH)
+print('**************************')
 
 setup_dirs()
 # assert torch.cuda.is_available()
@@ -33,12 +36,12 @@ setup_dirs()
 parser = argparse.ArgumentParser()
 parser.add_argument('--dataset')
 parser.add_argument('--distance', default='l2')
-parser.add_argument('--n-train', default=1, type=int)
-parser.add_argument('--n-test', default=1, type=int)
-parser.add_argument('--k-train', default=60, type=int)
-parser.add_argument('--k-test', default=5, type=int)
-parser.add_argument('--q-train', default=5, type=int)
-parser.add_argument('--q-test', default=1, type=int)
+parser.add_argument('--n-train', default=1, type=int) # Support samples per class for training tasks
+parser.add_argument('--n-test', default=1, type=int) # Support samples per class for validation tasks
+parser.add_argument('--k-train', default=60, type=int) # Number of classes in training tasks
+parser.add_argument('--k-test', default=5, type=int) # Number of classes in validation tasks
+parser.add_argument('--q-train', default=5, type=int) # Query samples per class for training tasks
+parser.add_argument('--q-test', default=1, type=int) # Query samples per class for validation tasks
 args = parser.parse_args()
 
 evaluation_episodes = 1000
