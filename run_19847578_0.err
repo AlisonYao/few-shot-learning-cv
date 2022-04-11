@@ -1,2 +1,0 @@
-DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
-/var/spool/slurmd/job19847578/slurm_script: line 29: source: activate: file not found
